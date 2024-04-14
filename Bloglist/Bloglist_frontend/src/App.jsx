@@ -7,6 +7,7 @@ import Login from './components/Login';
 import User from './components/User/User';
 import BlogRoute from './components/Blog/BlogRoute';
 import Notification from './components/Notification';
+import { Button } from 'react-bootstrap'
 
 const App = () => {
 
@@ -28,15 +29,15 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <div className='container'>
       {user ?
         <div> 
-          <div style={{width: '100%', backgroundColor: 'gray', paddingLeft: '15px', height: '36px', marginBottom: '20px'}}> 
+          <div style={{width: '100%', backgroundColor: 'lightblue', paddingLeft: '15px', marginBottom: '20px'}}> 
             <div style={{display: 'flex', width: '40%', justifyContent: 'space-between', verticalAlign: 'baseline', alignItems: 'center'}}>
               <p style={{margin: 0, textDecoration: 'underline', color: 'darkblue', cursor: 'pointer'}} onClick={() => navigate('/')}>blogs</p>
               <p style={{margin: 0, textDecoration: 'underline', color: 'darkblue', cursor: 'pointer'}} onClick={() => navigate('/users')}>users</p>
               <p style={{margin: 0}}><a>{user.name} logged in</a></p>
-              <button onClick={logOut} style={{height: '26px'}}>Log out</button>
+              <Button onClick={logOut} variant='danger'>Log out</Button>
             </div>
           </div>  
 

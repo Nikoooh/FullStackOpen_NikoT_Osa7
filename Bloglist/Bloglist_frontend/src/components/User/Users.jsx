@@ -16,8 +16,6 @@ const Users = () => {
     getAllUsers()
   }, [])
 
-  console.log(users);
-
   return (
     <div>
       {users ?

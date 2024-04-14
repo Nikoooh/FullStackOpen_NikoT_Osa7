@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import blogService from '../services/blogs';
 import Notification from './Notification';
 import { useNotificationDispatch, useUserDispatch } from '../context/BlogContext';
+import { Button } from 'react-bootstrap'
 
 const Login = () => {
   const loginRef = useRef();
@@ -49,7 +50,7 @@ const Login = () => {
         <input data-testid="password" name="password" />
         <br />
         <br />
-        <button type="submit">Login</button>
+        <Button type="submit" variant='primary'>Login</Button>
       </form>
       <Notification />
     </div>

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useQueryClient, useMutation } from '@tanstack/react-query';
 import { editBlog } from '../../requests';
 import { useNotificationDispatch } from '../../context/BlogContext';
+import { Button, Col, Form, Row } from 'react-bootstrap'
 
 const BlogRoute = () => {
 
@@ -107,20 +108,22 @@ const BlogRoute = () => {
             <div> 
               <h2>{blog.title} {blog.author}</h2>
               <h5>{blog.url}</h5>
-              <h5>likes: {blog.likes} <button onClick={handleLike}>like</button></h5>
+              <h5>likes: {blog.likes} <Button onClick={handleLike} variant='primary' style={{width: '100px'}}>like</Button></h5>
               <h5>added by {user.name}</h5>
 
               <div style={{marginTop: '18px'}}> 
-                <form onSubmit={handleComment}>
-                  <div className='form-row'>
-                    <input type='text' name='comment' placeholder='good tips...' style={{height: '35px'}} required></input>
-                    <button type='submit' style={{height: '35px', border: 0, backgroundColor: 'lightblue', borderRadius: '4px', width: '130px'}}>
-                      comment
-                    </button>
-                  </div>
-                  
-                  
-                </form>
+                <Form onSubmit={handleComment}>
+                  <Row>
+                    <Col xs='3'>
+                      <Form.Control type='text' name='comment' placeholder='good tips...' style={{width: '100%'}} required />       
+                    </Col>
+                    <Col xs='2'>
+                      <Button type='submit' variant='primary' style={{width: '100%'}}>
+                        comment
+                      </Button>
+                    </Col>
+                  </Row>                
+                </Form>
               </div>
 
               <div style={{marginTop: '15px'}}>
